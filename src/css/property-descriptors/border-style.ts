@@ -1,5 +1,6 @@
 import {IPropertyIdentValueDescriptor, PropertyDescriptorParsingType} from '../IPropertyDescriptor';
-export enum BORDER_STYLE {
+import {Context} from '../../core/context';
+export const enum BORDER_STYLE {
     NONE = 0,
     SOLID = 1,
     DASHED = 2,
@@ -12,7 +13,7 @@ const borderStyleForSide = (side: string): IPropertyIdentValueDescriptor<BORDER_
     initialValue: 'solid',
     prefix: false,
     type: PropertyDescriptorParsingType.IDENT_VALUE,
-    parse: (style: string): BORDER_STYLE => {
+    parse: (_context: Context, style: string): BORDER_STYLE => {
         switch (style) {
             case 'none':
                 return BORDER_STYLE.NONE;
